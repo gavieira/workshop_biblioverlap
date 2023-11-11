@@ -1,5 +1,14 @@
 ################## biblioverlap workshop - CLI #########################
 
+
+##Instalando versão estável
+install.packages('biblioverlap')
+
+##Instalando versão desenvolvimento
+#install.packages('devtools') #Se não tiver o pacote 'devtools', precisa instalar ele antes
+devtools::install_github('gavieira/biblioverlap')
+
+
 ##Carregando pacotes
 library(biblioverlap)
 library(dplyr)
@@ -16,6 +25,7 @@ zoology <- read.csv('lens_data/zoology-br-22.csv', sep = ',', check.names = FALS
 
 
 ##Gerando a lista (nomeada) que servirá de entrada para a função principal
+
 db_list <- list(Biochemistry = biochemistry,
                 Genetics = genetics,
                 Zoology = zoology)
