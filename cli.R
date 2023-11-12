@@ -73,3 +73,6 @@ preprints <- lapply(results$db_list, function(db) {
   filter(db, `Publication Type` == 'preprint')
 })
 plot_venn(preprints)
+
+##Abrindo interface gráfica
+biblioverApp()
