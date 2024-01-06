@@ -50,9 +50,9 @@ View(results$summary)
 
 
 ##Gráficos
-plot_matching_summary(results$summary)
-plot_venn(results$db_list)
-plot_upset(results$db_list)
+matching_summary_plot(results$summary)
+venn_plot(results$db_list)
+upset_plot(results$db_list)
 
 
 ##Usando outros campos para fazer gráficos de sobreposição de documentos
@@ -60,19 +60,16 @@ plot_upset(results$db_list)
 open_access <- lapply(results$db_list, function(db) {
   filter(db, `Is Open Access` == 'true')
 })
-plot_venn(open_access)
+venn_plot(open_access)
 
 #Docs com 10 ou mais citações
 i10_docs <- lapply(results$db_list, function(db) {
   filter(db, `Citing Works Count` >= 10)
 })
-plot_venn(i10_docs)
+venn_plot(i10_docs)
 
 #Preprints
 preprints <- lapply(results$db_list, function(db) {
   filter(db, `Publication Type` == 'preprint')
 })
-plot_venn(preprints)
-
-##Abrindo interface gráfica
-biblioverApp()
+venn_plot(preprints)
